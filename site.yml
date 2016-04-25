@@ -1,3 +1,2 @@
 ---
- - include: hadoop
- - include: redis.yml
+ - include: hadoop.yml
