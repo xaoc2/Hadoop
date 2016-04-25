@@ -1,12 +1,10 @@
   - name: check or build image hadoop
-    docker_image: path="/etc/ansible/dockerfiles/redis/redis-news" name="my/redis-news" state=present
+    docker_image: path="/etc/ansible/dockerfiles/hadoopo/hadoop" name="my/hadoop" state=present
 
-  - name: Run the redis-chat container from image
+  - name: Run the hadoop container from image
     docker:
-      name: redis-chat
-      image: my/redis-chat
+      name: hadoop-main
+      image: my/hadoop
       state: started
-      volumes: 
-      - /data/redis:/var/lib/redis:rw
       ports:
-      - "{{ ip_addr }}:6379:6379"
+      - "{{ ip_addr_main_serv }}:8088:8088"
